@@ -35,7 +35,7 @@
             "Carp" : "0",
             "Dancer2" : "0",
             "Dancer2::Plugin" : "0",
-            "Moo" : "0",
+            "Moo" : "1.000007",
             "strict" : "0",
             "warnings" : "0"
          }
@@ -43,7 +43,6 @@
       "test" : {
          "requires" : {
             "Dancer2::Test" : "0",
-            "File::Find" : "0",
             "Test::More" : "0.88",
             "perl" : "v5.10.0"
          }
@@ -52,7 +51,7 @@
    "provides" : {
       "Dancer2::Plugin::Cache::CHI" : {
          "file" : "lib/Dancer2/Plugin/Cache/CHI.pm",
-         "version" : "v1.5.0"
+         "version" : "v1.5.1"
       }
    },
    "release_status" : "stable",
@@ -68,7 +67,7 @@
          "web" : "https://github.com/yanick/Dancer2-Plugin-Cache-CHI"
       }
    },
-   "version" : "1.5.0",
+   "version" : "1.5.1",
    "x_author_pledge" : {
       "version" : 1
    },

@@ -1,5 +1,12 @@
 Revision history for Dancer2::Plugin::Cache::CHI
 
+1.5.1 2013-02-25
+ [BUG FIXES]
+ - Make the module compatible with Moo 1.000007.
+
+ [STATISTICS]
+ - code churn: 4 files changed, 14 insertions(+), 7 deletions(-)
+
 1.5.0 2013-02-23
  [ENHANCEMENTS]
  - Forking Dancer::Plugin::Cache::CHI into its Dancer2 incarnation

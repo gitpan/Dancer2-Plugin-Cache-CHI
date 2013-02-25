@@ -3,7 +3,7 @@ BEGIN {
   $Dancer2::Plugin::Cache::CHI::AUTHORITY = 'cpan:YANICK';
 }
 {
-  $Dancer2::Plugin::Cache::CHI::VERSION = '1.5.0';
+  $Dancer2::Plugin::Cache::CHI::VERSION = '1.5.1';
 }
 # ABSTRACT: Dancer plugin to cache response content (and anything else)
 
@@ -11,12 +11,10 @@ use strict;
 use warnings;
 no warnings qw/ uninitialized /;
 
-use Dancer2 ':syntax';
-
-use Moo;
-
 use Carp;
 use CHI;
+
+use Dancer2 ':syntax';
 
 use Dancer2::Plugin;
 
@@ -168,7 +166,7 @@ Dancer2::Plugin::Cache::CHI - Dancer plugin to cache response content (and anyth
 
 =head1 VERSION
 
-version 1.5.0
+version 1.5.1
 
 =head1 SYNOPSIS
 

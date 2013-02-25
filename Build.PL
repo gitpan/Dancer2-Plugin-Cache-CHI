@@ -8,7 +8,6 @@ use Module::Build 0.3601;
 my %module_build_args = (
   "build_requires" => {
     "Dancer2::Test" => 0,
-    "File::Find" => 0,
     "Module::Build" => "0.3601",
     "Test::More" => "0.88",
     "perl" => "v5.10.0"
@@ -21,7 +20,7 @@ my %module_build_args = (
     "Yanick Champoux <yanick\@cpan.org>"
   ],
   "dist_name" => "Dancer2-Plugin-Cache-CHI",
-  "dist_version" => "1.5.0",
+  "dist_version" => "1.5.1",
   "license" => "perl",
   "module_name" => "Dancer2::Plugin::Cache::CHI",
   "recommends" => {},
@@ -31,7 +30,7 @@ my %module_build_args = (
     "Carp" => 0,
     "Dancer2" => 0,
     "Dancer2::Plugin" => 0,
-    "Moo" => 0,
+    "Moo" => "1.000007",
     "strict" => 0,
     "warnings" => 0
   },
