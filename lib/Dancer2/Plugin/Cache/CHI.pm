@@ -3,7 +3,7 @@ BEGIN {
   $Dancer2::Plugin::Cache::CHI::AUTHORITY = 'cpan:YANICK';
 }
 {
-  $Dancer2::Plugin::Cache::CHI::VERSION = '1.5.1';
+  $Dancer2::Plugin::Cache::CHI::VERSION = '1.5.2';
 }
 # ABSTRACT: Dancer plugin to cache response content (and anything else)
 
@@ -14,7 +14,7 @@ no warnings qw/ uninitialized /;
 use Carp;
 use CHI;
 
-use Dancer2 ':syntax';
+use Dancer2 0.10;
 
 use Dancer2::Plugin;
 
@@ -26,23 +26,31 @@ register_hook 'before_create_cache';
 my %cache;     
 my $cache_page; # actually hold the ref to the args
 my $cache_page_key_generator = sub {
-    return request()->{path_info};
+    return $_[0]->request->{path_info};
 };
 
-hook after => sub {
-    return unless $cache_page;
+on_plugin_import {
+    my $dsl = shift;
 
-    my $resp = shift;
-    cache()->set( $cache_page_key_generator->(),
-        {
-            status      => $resp->status,
-            headers     => $resp->headers_to_array,
-            content     => $resp->content
-        },
-        @$cache_page,
-    );
+    $dsl->app->add_hook(
+        Dancer2::Core::Hook->new(
+            name => 'after',
+            code => sub {
+                return unless $cache_page;
 
-    $cache_page = undef;
+                my $resp = shift;
+                cache()->set( $cache_page_key_generator->($dsl),
+                    {
+                        status      => $resp->status,
+                        headers     => $resp->headers_to_array,
+                        content     => $resp->content
+                    },
+                    @$cache_page,
+                );
+
+                $cache_page = undef;
+            }
+    ));
 };
 
 register cache => sub {
@@ -58,7 +66,6 @@ sub _create_cache {
 
     execute_hook 'before_create_cache';
 
-    $DB::single = 1;
     my %setting = %{ plugin_setting() };
 
     $setting{namespace} = $namespace if defined $namespace;
@@ -76,20 +83,19 @@ sub _create_cache {
 
 
 register check_page_cache => sub {
-    shift;
+    my $dsl = shift;
 
     my $hook = sub {
-        my $dsl = shift;
+        my $context = shift;
 
         # Instead halt() now we use a more correct method - setting of a
         # response to Dancer::Response object for a more correct returning of
         # some HTTP headers (X-Powered-By, Server)
 
-        my $cached = cache()->get( $cache_page_key_generator->() )
+        my $cached = cache()->get( $cache_page_key_generator->($dsl) )
             or return;
 
         if ( $honor_no_cache ) {
-            $DB::single = 1;
 
             my $req =  $dsl->request;
 
@@ -100,7 +106,7 @@ register check_page_cache => sub {
             } qw/ Cache-Control Pragma /;
         }
 
-        $dsl->response(
+        $context->response(
             Dancer2::Core::Response->new(
                 is_halted => 1,
                 ref $cached eq 'HASH'
@@ -116,7 +122,10 @@ register check_page_cache => sub {
         );
     };
 
-    hook before => $hook;
+    $dsl->app->add_hook( Dancer2::Core::Hook->new(
+        name => 'before',
+        code => $hook,
+    ));
 };
 
 
@@ -166,7 +175,7 @@ Dancer2::Plugin::Cache::CHI - Dancer plugin to cache response content (and anyth
 
 =head1 VERSION
 
-version 1.5.1
+version 1.5.2
 
 =head1 SYNOPSIS
 

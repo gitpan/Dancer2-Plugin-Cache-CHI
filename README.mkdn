@@ -4,7 +4,7 @@ Dancer2::Plugin::Cache::CHI - Dancer plugin to cache response content (and anyth
 
 # VERSION
 
-version 1.5.1
+version 1.5.2
 
 # SYNOPSIS
 

@@ -50,12 +50,13 @@ sub pmver {
 
 eval { $v .= pmver('CHI','any version') };
 eval { $v .= pmver('Carp','any version') };
-eval { $v .= pmver('Dancer2','any version') };
+eval { $v .= pmver('Dancer2','0.10') };
 eval { $v .= pmver('Dancer2::Plugin','any version') };
 eval { $v .= pmver('Dancer2::Test','any version') };
 eval { $v .= pmver('Module::Build','0.3601') };
 eval { $v .= pmver('Moo','1.000007') };
 eval { $v .= pmver('Test::More','0.88') };
+eval { $v .= pmver('lib','any version') };
 eval { $v .= pmver('strict','any version') };
 eval { $v .= pmver('version','0.9901') };
 eval { $v .= pmver('warnings','any version') };

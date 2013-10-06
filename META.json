@@ -4,7 +4,7 @@
       "Yanick Champoux <yanick@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300028, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Dist::Zilla version 4.300037, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
    ],
@@ -33,7 +33,7 @@
          "requires" : {
             "CHI" : "0",
             "Carp" : "0",
-            "Dancer2" : "0",
+            "Dancer2" : "0.10",
             "Dancer2::Plugin" : "0",
             "Moo" : "1.000007",
             "strict" : "0",
@@ -44,6 +44,7 @@
          "requires" : {
             "Dancer2::Test" : "0",
             "Test::More" : "0.88",
+            "lib" : "0",
             "perl" : "v5.10.0"
          }
       }
@@ -51,7 +52,7 @@
    "provides" : {
       "Dancer2::Plugin::Cache::CHI" : {
          "file" : "lib/Dancer2/Plugin/Cache/CHI.pm",
-         "version" : "v1.5.1"
+         "version" : "v1.5.2"
       }
    },
    "release_status" : "stable",
@@ -67,10 +68,16 @@
          "web" : "https://github.com/yanick/Dancer2-Plugin-Cache-CHI"
       }
    },
-   "version" : "1.5.1",
+   "version" : "1.5.2",
    "x_author_pledge" : {
       "version" : 1
    },
-   "x_authority" : "cpan:YANICK"
+   "x_authority" : "cpan:YANICK",
+   "x_contributors" : [
+      "Alexis Sukrieh <sukria@cpan.org>",
+      "David Precious <davidp@preshweb.co.uk>",
+      "Franck Cuny <franck@lumberjaph.net>",
+      "Perlover <perlover@perlover.com>"
+   ]
 }
 
