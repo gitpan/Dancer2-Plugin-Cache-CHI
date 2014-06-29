@@ -4,7 +4,7 @@
       "Yanick Champoux <yanick@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300037, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Dist::Zilla version 5.016, CPAN::Meta::Converter version 2.140640",
    "license" : [
       "perl_5"
    ],
@@ -33,7 +33,7 @@
          "requires" : {
             "CHI" : "0",
             "Carp" : "0",
-            "Dancer2" : "0.10",
+            "Dancer2" : "0.140001",
             "Dancer2::Plugin" : "0",
             "Moo" : "1.000007",
             "strict" : "0",
@@ -42,7 +42,8 @@
       },
       "test" : {
          "requires" : {
-            "Dancer2::Test" : "0",
+            "HTTP::Request::Common" : "0",
+            "Plack::Test" : "0",
             "Test::More" : "0.88",
             "lib" : "0",
             "perl" : "v5.10.0"
@@ -52,14 +53,13 @@
    "provides" : {
       "Dancer2::Plugin::Cache::CHI" : {
          "file" : "lib/Dancer2/Plugin/Cache/CHI.pm",
-         "version" : "v1.5.2"
+         "version" : "v1.6.0"
       }
    },
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "mailto" : "bug-dancer2-plugin-cache-chi at rt.cpan.org",
-         "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Dancer2-Plugin-Cache-CHI"
+         "web" : "https://github.com/yanick/Dancer2-Plugin-Cache-CHI/issues"
       },
       "homepage" : "http://search.cpan.org/dist/Dancer2-Plugin-Cache-CHI/",
       "repository" : {
@@ -68,7 +68,7 @@
          "web" : "https://github.com/yanick/Dancer2-Plugin-Cache-CHI"
       }
    },
-   "version" : "1.5.2",
+   "version" : "1.6.0",
    "x_author_pledge" : {
       "version" : 1
    },
@@ -77,6 +77,7 @@
       "Alexis Sukrieh <sukria@cpan.org>",
       "David Precious <davidp@preshweb.co.uk>",
       "Franck Cuny <franck@lumberjaph.net>",
+      "Kim Hansen <kim@rthansen.dk>",
       "Perlover <perlover@perlover.com>"
    ]
 }

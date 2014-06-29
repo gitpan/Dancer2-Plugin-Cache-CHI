@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.68.
+signed via the Module::Signature module, version 0.73.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -15,29 +15,30 @@ not run its Makefile.PL or Build.PL.
 Hash: SHA1
 
 SHA1 4c155391dc709e44e2b9eb254c219400b1cec9ef AUTHOR_PLEDGE
-SHA1 ba2e04bfd1f8d40c80fe151ed90bdb7ff07c0c9c Build.PL
-SHA1 0b33d81f8d6745fe40920b9ea983430af34b285f CONTRIBUTORS
-SHA1 a7826d1b0adae3e8d12d819c00414f69b1979697 Changes
+SHA1 86e8379794b14803108c818960f3a72b264ed9f9 Build.PL
+SHA1 ab9876f3b2672dd9ceb2d03a7f2aa1de935ca2dc CONTRIBUTORS
+SHA1 2a84695f27c88095bd9fa1f7bdd0a4132b297427 Changes
 SHA1 1d29132bef2639b9859e6ecf2f431b85987f536f INSTALL
-SHA1 cf5dc9c929415cfa7133eed863def866ade9774d LICENSE
-SHA1 c0f28548dfda3208be54de115fea99db7064b827 MANIFEST
-SHA1 535193e78ee84265a30ed743a82decd8fd6a576f META.json
-SHA1 8f68c55bbf51919a760a32a32009a06914f0cbf6 META.yml
-SHA1 32e2d9c7d63d6e1003dfbab21dc4228c4ab9eb7f README
-SHA1 7e0c80b1e6caabdb38a0ed8848f1ac84dc7d137d README.mkdn
-SHA1 84064b5def382cb4ec20558df630faf1e8d0e009 lib/Dancer2/Plugin/Cache/CHI.pm
-SHA1 d42fe442d180b29a0ba14dccd153deeaceafe0f7 t/000-report-versions-tiny.t
-SHA1 454da230ef9175e5a0ad800295959dd0b0a63bb7 t/TestApp.pm
-SHA1 fc846765de0a721ef4ad4997c28d2340c5086bb1 t/basic.t
-SHA1 3045c9c08e527e19cc5f40cb53e50011604fbed3 t/honor-no-cache.t
-SHA1 d885da01c6fa3015ea88f9ef665d45a8a22cd655 t/hooks.t
-SHA1 9f5d1ccea6d811bd094b7c249a190993848126bf t/key-gen.t
-SHA1 17a416901c6e1ce3b69067db2b99137706dde94b t/namespaces.t
+SHA1 769557ae7e699664d9c0bba4a6e3e7f7ac31c0ae LICENSE
+SHA1 8f5b9de012ece244f7a2b61ce5264bf0dbf016e6 MANIFEST
+SHA1 d1ecf4e9ee0c87cb9f786476fd2bb9dccd6f3d37 META.json
+SHA1 3045a67cb878bd8e31f1ab66652aeb3c36c86cc8 META.yml
+SHA1 8492fc14e7fb47fcb7958b0327ee085d5cd52eba README
+SHA1 bf10434f68206778ff0f4e861703dad489f17d3d README.mkdn
+SHA1 d34cd5f6a0f694cb43f9db95049820fccb555ac5 lib/Dancer2/Plugin/Cache/CHI.pm
+SHA1 6a644a64933ca1b9086920408f81c1f84ed3193f t/000-report-versions-tiny.t
+SHA1 c41f6b6e85cd63bdb9554968aeeeaa2b5601cbee t/TestApp.pm
+SHA1 d761a3b6167b2f55dbc718f47eb8a2e02b472c53 t/basic.t
+SHA1 310a88a8e81cfab078cd95dcc62f96ef9fb0ded0 t/honor-no-cache.t
+SHA1 522e7f992cabe656d23f3821b7c2fb5e4c68b3a8 t/hooks.t
+SHA1 fe6bf1c1533d5ce13a79f5b9c9aa69b08918610e t/init-check-page-cache.t
+SHA1 a76c3beb830746aeef6d6583fb4076b193f63405 t/key-gen.t
+SHA1 9e945afff795bba773eff18629ec0caf25ac0271 t/namespaces.t
 SHA1 ec3f84bfd7a9ce3246e7592f4134100c6b5ce02b xt/release/unused-vars.t
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.11 (GNU/Linux)
+Version: GnuPG v1
 
-iEYEARECAAYFAlJRyugACgkQ34Hwf+GwC4zIhgCg4gZvmC4GePUqKyr+/cKiEhAm
-uUgAn0C1sX1iBGuMb6uzi4PQut46guqE
-=Oy+/
+iEYEARECAAYFAlOvXBEACgkQ34Hwf+GwC4yiOQCg7XXLvFqin1Z1Bf5c0XjgOKYP
+ZKYAnAkSpkqJSddgCWxEQWosSkN6/Oos
+=+4Kh
 -----END PGP SIGNATURE-----

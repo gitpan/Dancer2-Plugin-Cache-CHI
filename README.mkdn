@@ -4,7 +4,7 @@ Dancer2::Plugin::Cache::CHI - Dancer plugin to cache response content (and anyth
 
 # VERSION
 
-version 1.5.2
+version 1.6.0
 
 # SYNOPSIS
 
@@ -17,8 +17,8 @@ In your configuration:
 
 In your application:
 
-    use Dancer2 ':syntax';
-    use Dancer::Plugin::Cache::CHI;
+    use Dancer2;
+    use Dancer2::Plugin::Cache::CHI;
 
     # caching pages' response
 
@@ -56,13 +56,13 @@ In your application:
 
 # DESCRIPTION
 
-This plugin provides Dancer2 with an interface to a [CHI](http://search.cpan.org/perldoc?CHI) cache. Also, it
+This plugin provides Dancer2 with an interface to a [CHI](https://metacpan.org/pod/CHI) cache. Also, it
 includes a mechanism to easily cache the response of routes.
 
 # CONFIGURATION
 
-Unrecognized configuration elements are passed directly to the [CHI](http://search.cpan.org/perldoc?CHI) object's
-constructor. For example, the configuration given in the ["SYNOPSIS"](#SYNOPSIS)
+Unrecognized configuration elements are passed directly to the [CHI](https://metacpan.org/pod/CHI) object's
+constructor. For example, the configuration given in the ["SYNOPSIS"](#synopsis)
 will create a cache object equivalent to
 
     $cache = CHI->new( driver => 'Memory', global => 1, );
@@ -77,11 +77,11 @@ content cached via '`cache_page`' and will have the page regenerated anew.
 
 ## cache
 
-Returns the [CHI](http://search.cpan.org/perldoc?CHI) cache object.
+Returns the [CHI](https://metacpan.org/pod/CHI) cache object.
 
 ## cache $namespace, \\%args
 
-[CHI](http://search.cpan.org/perldoc?CHI) only allows one namespace per object. But you can create more caches by
+[CHI](https://metacpan.org/pod/CHI) only allows one namespace per object. But you can create more caches by
 using _cache $namespace, \\%args_. The new cache uses the arguments as defined in
 the configuration, which values can be overriden by the optional arguments
 (which are only used on the first invocation of the namespace).
@@ -138,7 +138,7 @@ Shortcut to the cache's object methods.
         cache_set $params->{attr} => $params->{value};
     };
 
-See the [CHI](http://search.cpan.org/perldoc?CHI) documentation for further info on these methods.
+See the [CHI](https://metacpan.org/pod/CHI) documentation for further info on these methods.
 
 # HOOKS
 
@@ -158,11 +158,11 @@ Useful, for example, to change the cache's configuration at run time:
 
 # SEE ALSO
 
-Dancer2 Web Framework - [Dancer2](http://search.cpan.org/perldoc?Dancer2)
+Dancer2 Web Framework - [Dancer2](https://metacpan.org/pod/Dancer2)
 
-[CHI](http://search.cpan.org/perldoc?CHI)
+[CHI](https://metacpan.org/pod/CHI)
 
-[Dancer::Plugin::Memcached](http://search.cpan.org/perldoc?Dancer::Plugin::Memcached) - plugin that heavily inspired this one.
+[Dancer::Plugin::Memcached](https://metacpan.org/pod/Dancer::Plugin::Memcached) - plugin that heavily inspired this one.
 
 # AUTHOR
 

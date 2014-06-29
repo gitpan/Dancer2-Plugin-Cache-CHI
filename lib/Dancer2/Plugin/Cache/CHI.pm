@@ -2,11 +2,8 @@ package Dancer2::Plugin::Cache::CHI;
 BEGIN {
   $Dancer2::Plugin::Cache::CHI::AUTHORITY = 'cpan:YANICK';
 }
-{
-  $Dancer2::Plugin::Cache::CHI::VERSION = '1.5.2';
-}
 # ABSTRACT: Dancer plugin to cache response content (and anything else)
-
+$Dancer2::Plugin::Cache::CHI::VERSION = '1.6.0';
 use strict;
 use warnings;
 no warnings qw/ uninitialized /;
@@ -14,7 +11,7 @@ no warnings qw/ uninitialized /;
 use Carp;
 use CHI;
 
-use Dancer2 0.10;
+use Dancer2 0.140001;
 
 use Dancer2::Plugin;
 
@@ -23,7 +20,7 @@ with 'Dancer2::Plugin';
 register_hook 'before_create_cache';
 
 
-my %cache;     
+my %cache;
 my $cache_page; # actually hold the ref to the args
 my $cache_page_key_generator = sub {
     return $_[0]->request->{path_info};
@@ -39,7 +36,7 @@ on_plugin_import {
                 return unless $cache_page;
 
                 my $resp = shift;
-                cache()->set( $cache_page_key_generator->($dsl),
+                cache($dsl)->set( $cache_page_key_generator->($dsl),
                     {
                         status      => $resp->status,
                         headers     => $resp->headers_to_array,
@@ -54,19 +51,22 @@ on_plugin_import {
 };
 
 register cache => sub {
-    shift;
-    return  $cache{$_[0]//''} ||= _create_cache( @_ );
+    my $dsl = shift;
+    return  $cache{$_[0]//''} ||= _create_cache( $dsl, @_ );
 };
 
 my $honor_no_cache = 0;
 
 sub _create_cache {
+    my $dsl = shift;
     my $namespace = shift;
     my $args = shift || {};
 
-    execute_hook 'before_create_cache';
+    $dsl->execute_hook( 'before_create_cache' );
 
-    my %setting = %{ plugin_setting() };
+    my %setting = %{
+        $dsl->dancer_app->config->{plugins}{'Cache::CHI'} || {}
+    };
 
     $setting{namespace} = $namespace if defined $namespace;
 
@@ -89,10 +89,10 @@ register check_page_cache => sub {
         my $context = shift;
 
         # Instead halt() now we use a more correct method - setting of a
-        # response to Dancer::Response object for a more correct returning of
+        # response to Dancer2::Core::Response object for a more correct returning of
         # some HTTP headers (X-Powered-By, Server)
 
-        my $cached = cache()->get( $cache_page_key_generator->($dsl) )
+        my $cached = cache($dsl)->get( $cache_page_key_generator->($dsl) )
             or return;
 
         if ( $honor_no_cache ) {
@@ -155,8 +155,8 @@ register cache_page_key_generator => sub {
 
 for my $method ( qw/ set get remove clear compute / ) {
     register 'cache_'.$method => sub {
-        shift;
-        return cache()->$method( @_ );
+        my $dsl = shift;
+        return cache($dsl)->$method( @_ );
     }
 }
 
@@ -169,13 +169,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Dancer2::Plugin::Cache::CHI - Dancer plugin to cache response content (and anything else)
 
 =head1 VERSION
 
-version 1.5.2
+version 1.6.0
 
 =head1 SYNOPSIS
 
@@ -188,8 +190,8 @@ In your configuration:
 
 In your application:
 
-    use Dancer2 ':syntax';
-    use Dancer::Plugin::Cache::CHI;
+    use Dancer2;
+    use Dancer2::Plugin::Cache::CHI;
 
     # caching pages' response
 

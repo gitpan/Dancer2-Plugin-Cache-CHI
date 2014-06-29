@@ -3,7 +3,7 @@ NAME
     (and anything else)
 
 VERSION
-    version 1.5.2
+    version 1.6.0
 
 SYNOPSIS
     In your configuration:
@@ -15,8 +15,8 @@ SYNOPSIS
 
     In your application:
 
-        use Dancer2 ':syntax';
-        use Dancer::Plugin::Cache::CHI;
+        use Dancer2;
+        use Dancer2::Plugin::Cache::CHI;
 
         # caching pages' response
 
